@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="menu.css">
+  <title>Restaurante Bar Charlies</title>
+</head>
+<header>
+  <div class="container">
+    <div class="logo">
+      <h1>Nombre del Restaurante</h1>
+      <p>Descripción breve del restaurante</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/secundario/menu.html">Menu</a></li>
+        <li><a href="/secundario/reservas.html">Reservas</a></li>
+        <li><a href="/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<body>
+  <section id="menu">
+		<div class="container">
+		  <div class="menu-item">
+			<img src="/pics/previews_0012_custom_1604997535.1665.jpg" alt="nombre-del-plato">
+			<h3>Salchipapas Colombianas</h3>
+			<p class="price">₡11.000</p>
+			<p class="description">Descripción breve del plato</p>
+		  </div>
+		  
+		  <div class="menu-item">
+			<img src="/pics/pizza-4-1.jpg" alt="nombre-del-plato">
+			<h3>Pizza Artesanal</h3>
+			<p class="price">₡15.000</p>
+			<p class="description">Descripción breve del plato</p>
+		  </div>
+		  
+		  <div class="menu-item">
+			<img src="/pics/th-1881588962" alt="nombre-del-plato">
+			<h3>Espaguetti Italia</h3>
+			<p class="price">₡4.500</p>
+			<p class="description">Descripción breve del plato</p>
+		  </div>
+		  <div class="menu-item">
+			<img src="/pics/th-1358255314" alt="hambugueza">
+			<h3>Hambugueza Deluxe</h3>
+			<p class="price">₡4.000</p>
+			<p class="description">Descripción breve del plato</p>
+		  </div>
+		  <!-- Agregar más elementos para más platos -->
+		  
+		</div>
+	  </section>
+<footer>
+  <div class="footer-contact">
+    <h3>Contacto</h3>
+    <p>1234 Calle Principal</p>
+    <p>Ciudad, Estado</p>
+    <p>Teléfono: (555) 555-5555</p>
+    <a href="#">Enviar un mensaje</a>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-8 row"></main>
+      <!-- Carrito -->
+      <aside class="col-sm-4">
+        <h2>Carrito</h2>
+        <!-- Elementos del carrito -->
+        <ul id="carrito" class="list-group"></ul>
+        <hr>
+        <!-- Precio total -->
+        <p class="text-right">Total: <span id="total"></span>&euro;</p>
+        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+      </aside>
+    </div>
+  </div>
+</footer>
+
+</html>
