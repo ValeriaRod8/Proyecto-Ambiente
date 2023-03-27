@@ -7,7 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/src/css/style.css"> 
-	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+	<script src="/src/index.js"></script>
 </head>
 <header>
 	<div class="container">
@@ -27,22 +28,28 @@
 </header>
 
 <body>
-	<div class="slider">
-		<div class="slide-track">
-			<div class="slide"><img src="/pics/th-1881588962" alt=""></div>
-			<div class="slide"><img src="/pics/th-1358255314" alt=""></div>
-			<div class="slide"><img src="/pics/64319177556c729f1806922bcd3adef5.png" alt=""></div>
-			<div class="slide"><img src="/pics/pizza-4-1.jpg" alt=""></div>
-
-			<div class="slide"><img src="/pics/th-1881588962" alt=""></div>
-			<div class="slide"><img src="/pics/th-1358255314" alt=""></div>
-			<div class="slide"><img src="/pics/64319177556c729f1806922bcd3adef5.png" alt=""></div>
-			<div class="slide"><img src="/pics/pizza-4-1.jpg" alt=""></div>
-		</div>
-
-	</div>
+	<img src="/src/pics/th-1881588962" class="img-fluid" alt="...">
+	<img src="/src/pics/pizza-4-1.jpg" class="img-fluid" alt="...">
+	<img src="/src/pics/th-1358255314" class="img-fluid" alt="...">
 
 </body>
+<div class="container">
+    <div class="row">
+        <!-- Elementos generados a partir del JSON -->
+        <main id="items" class="col-sm-8 row"></main>
+        <!-- Carrito -->
+        <aside class="col-sm-4">
+            <h2>Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+        </aside>
+    </div>
+</div>
+
 <footer>
 	<div class="footer-contact">
 		<h3>Contacto</h3>
