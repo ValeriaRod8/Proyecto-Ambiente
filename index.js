@@ -10,7 +10,7 @@ app.use(express.static('src'));
 
 app.get('/', (req, res) => res.sendfile(__dirname + '/src/view/index.html'));
 app.get('/contacto', (req, res) => res.sendfile(__dirname + '/src/view/contacto.html'));
-app.get('/menu', (req, res) => res.sendfile(__dirname + '/src/view/menu.html'));
+app.get('/menu', (req, res) => res.sendfile(__dirname + '/src/view/menu2.html'));
 app.get('/reservas', (req, res) => res.sendfile(__dirname + '/src/view/reservas.html'));
 
 const connection = mysql.createConnection({ // Creamos la conexion a la base de datos
@@ -66,9 +66,12 @@ app.post('/api/ordenes', (req, res) => { // Creamos la ruta para insertar datos 
 
 
     app.listen(port, () => console.log(`http://localhost:${port}`));
+<<<<<<< Updated upstream
 
 
 
 
 
 
+=======
+>>>>>>> Stashed changes

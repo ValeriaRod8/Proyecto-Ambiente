@@ -84,3 +84,8 @@ nav ul li a {
 nav ul li a:hover {
 	border-bottom: 2px solid #E74C3C;
 }
+body {
+    background-image: url('/src/pics/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
