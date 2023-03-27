@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +8,24 @@
   <script src="/src/menu.js"></script>
   <title>Restaurante Bar Charlies</title>
 </head>
-<header>
-  <div class="container">
-    <div class="logo">
-      <h1>Nombre del Restaurante</h1>
-      <p>Descripción breve del restaurante</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/src/view/index.html">Inicio</a></li>
-        <li><a href="/src/view/secundario/menu.html">Menu</a></li>
-        <li><a href="/src/view/secundario/reservas.html">Reservas</a></li>
-        <li><a href="/src/view/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Nombre del Restaurante</h1>
+        <p>Descripción breve del restaurante</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/src/view/index.html">Inicio</a></li>
+          <li><a href="/src/view/secundario/menu.html">Menu</a></li>
+          <li><a href="/src/view/secundario/reservas.html">Reservas</a></li>
+          <li><a href="/src/view/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
   <section id="menu">
     <div class="container">
       <div class="menu-item">
@@ -34,13 +33,14 @@
         <h3>Salchipapas Colombianas</h3>
         <p class="price">₡11.000</p>
         <p class="description">Descripción breve del plato</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Salchipapas Colombianas', 11000)">Agregar al carrito</button>
       </div>
-
       <div class="menu-item">
         <img src="/src/pics/pizza-4-1.jpg" alt="nombre-del-plato">
         <h3>Pizza Artesanal</h3>
         <p class="price">₡15.000</p>
         <p class="description">Descripción breve del plato</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Pizza Artesanal', 15000)">Agregar al carrito</button>
       </div>
 
       <div class="menu-item">
@@ -48,44 +48,45 @@
         <h3>Espaguetti Italia</h3>
         <p class="price">₡4.500</p>
         <p class="description">Descripción breve del plato</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Espaguetti Italia', 4500)">Agregar al carrito</button>
       </div>
       <div class="menu-item">
         <img src="/src/pics/th-1358255314" alt="hambugueza">
         <h3>Hambugueza Deluxe</h3>
         <p class="price">₡4.000</p>
         <p class="description">Descripción breve del plato</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Hambugueza Deluxe', 4000)">Agregar al carrito</button>
       </div>
       <!-- Agregar más elementos para más platos -->
-
+    </div>
+ 
+  </section>
+  <section id="carrito">
+    <div class="container">
+      <h2>Carrito de compras</h2>
+      <table id="carrito-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total</td>
+            <td id="total-carrito">₡0</td>
+            <td><button class="btn btn-primary" onclick="vaciarCarrito()">Vaciar carrito</button></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   </section>
-  </body>
-  <div class="container">
-    <div class="row">
-        <!-- Elementos generados a partir del JSON -->
-        <main id="items" class="col-sm-8 row"></main>
-        <!-- Carrito -->
-        <aside class="col-sm-4">
-            <h2>Carrito</h2>
-            <!-- Elementos del carrito -->
-            <ul id="carrito" class="list-group"></ul>
-            <hr>
-            <!-- Precio total -->
-            <p class="text-right">Total: <span id="total"></span>&euro;</p>
-            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-        </aside>
-    </div>
-</div>
-  <footer>
-    <div class="footer-contact">
-      <h3>Contacto</h3>
-      <p>1234 Calle Principal</p>
-      <p>Ciudad, Estado</p>
-      <p>Teléfono: (555) 555-5555</p>
-      <a href="#">Enviar un mensaje</a>
-    </div>
-    </div>
-    
-  </footer>
+  <script src="/src/menu.js"></script>
 
+</body>
 </html>
