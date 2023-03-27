@@ -72,6 +72,56 @@ img {
 	width: 33.33%;
 	float: left;
 }
+#menu {
+    background-color: #f6f6f6;
+    padding: 80px 0;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.menu-item img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-item .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff7043;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-item .description {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-item a {
+    color: #000;
+    text-decoration: none;
+}
+
+.menu-item a:hover {
+    color: #ff7043;
+}
+
 footer {
 	position: absolute;
 	bottom: 0;
