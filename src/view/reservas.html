@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	<link rel="stylesheet" type="text/css" href="/src/css/reservas.css">
 	<title>Reservar en el Restaurante</title>
 </head>
+<header>
+	<div class="container">
+		<div class="logo">
+			<h1>Nombre del Restaurante</h1>
+			<p>Descripción breve del restaurante</p>
+		</div>
+		<nav>
+            <ul>
+                <li><a href="/src/view/index.html">Inicio</a></li>
+                <li><a href="/src/view/menu.html">Menu</a></li>
+                <li><a href="/src/view/reservas.html">Reservas</a></li>
+                <li><a href="/src/view/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+	</div>
+</header>
+
 <body>
 	<h1>Reservar en el Restaurante</h1>
 	<form>
@@ -25,6 +44,19 @@
 		<textarea id="comments" name="comments"></textarea><br>
 
 		<input type="submit" value="Enviar Reserva">
+		<button type="button" id="cancel-btn">Cancelar Reserva</button>
+
 	</form>
 </body>
+<footer>
+	<div class="footer-contact">
+		<h3>Contacto</h3>
+		<p>1234 Calle Principal</p>
+		<p>Ciudad, Estado</p>
+		<p>Teléfono: (555) 555-5555</p>
+		<a href="#">Enviar un mensaje</a>
+	</div>
+	</div>
+</footer>
+
 </html>
