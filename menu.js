@@ -2,33 +2,33 @@
 const baseDeDatos = [
     {
         id: 1,
-        nombre: 'Patata',
-        precio: 1,
-        imagen: 'patata.jpg'
+        nombre: 'Salchipapas Colombianas',
+        precio: 11000,
+        imagen: '/src/pics/previews_0012_custom_1604997535.1665.jpg'
     },
     {
         id: 2,
-        nombre: 'Cebolla',
-        precio: 1.2,
-        imagen: 'th-1881588962'
+        nombre: 'Pizza Artesanal',
+        precio: 15000,
+        imagen: '/src/pics/pizza-4-1.jpg'
     },
     {
         id: 3,
-        nombre: 'Calabacin',
-        precio: 2.1,
-        imagen: 'calabacin.jpg'
+        nombre: 'Espaguetti Italia',
+        precio: 4500,
+        imagen: '/src/pics/th-1881588962'
     },
     {
         id: 4,
-        nombre: 'Fresas',
-        precio: 0.6,
-        imagen: 'fresas.jpg'
+        nombre: 'Hambugueza Deluxe',
+        precio: 4000,
+        imagen: '/src/pics/th-1358255314'
     }
 
 ];
 
 let carrito = [];
-const divisa = '€';
+const divisa = '₡';
 const DOMitems = document.querySelector('#items');
 const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.querySelector('#total');
@@ -39,134 +39,74 @@ const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 /**
  * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
  */
-function renderizarProductos() {
-    baseDeDatos.forEach((info) => {
-        // Estructura
-        const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-4');
-        // Body
-        const miNodoCardBody = document.createElement('div');
-        miNodoCardBody.classList.add('card-body');
-        // Titulo
-        const miNodoTitle = document.createElement('h5');
-        miNodoTitle.classList.add('card-title');
-        miNodoTitle.textContent = info.nombre;
-        // Imagen
-        const miNodoImagen = document.createElement('img');
-        miNodoImagen.classList.add('img-fluid');
-        miNodoImagen.setAttribute('src', info.imagen);
-        // Precio
-        const miNodoPrecio = document.createElement('p');
-        miNodoPrecio.classList.add('card-text');
-        miNodoPrecio.textContent = `${info.precio}${divisa}`;
-        // Boton 
-        const miNodoBoton = document.createElement('button');
-        miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = '+';
-        miNodoBoton.setAttribute('marcador', info.id);
-        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-        // Insertamos
-        miNodoCardBody.appendChild(miNodoImagen);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoPrecio);
-        miNodoCardBody.appendChild(miNodoBoton);
-        miNodo.appendChild(miNodoCardBody);
-        DOMitems.appendChild(miNodo);
+function agregarAlCarrito(nombre, precio) {
+    // Creamos un objeto para el producto
+    const producto = {
+      nombre: nombre,
+      precio: precio
+    };
+  
+    // Buscamos el carrito en el DOM
+    const carrito = document.querySelector('#carrito tbody');
+  
+    // Buscamos si ya existe el producto en el carrito
+    const existeEnCarrito = Array.from(carrito.children).some((fila) => {
+      return fila.querySelector('.nombre-producto').textContent === nombre;
     });
-}
+  
+    // Si ya existe, aumentamos la cantidad y actualizamos el total
+    if (existeEnCarrito) {
+      const fila = Array.from(carrito.children).find((fila) => {
+        return fila.querySelector('.nombre-producto').textContent === nombre;
+      });
+      const cantidad = fila.querySelector('.cantidad-producto');
+      cantidad.value++;
+      actualizarTotal();
+    } else { // Si no existe, creamos una nueva fila en la tabla
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td class="nombre-producto">${nombre}</td>
+        <td class="precio-producto">${precio}</td>
+        <td><input type="number" class="cantidad-producto" value="1"></td>
+        <td class="subtotal-producto">${precio}</td>
+        <td><button class="btn btn-danger" onclick="eliminarDelCarrito(this)">X</button></td>
+      `;
+      carrito.appendChild(fila);
+      actualizarTotal();
+    }
+  }
+  
+  function actualizarTotal() {
+    const carrito = document.querySelector('#carrito tbody');
+    const total = Array.from(carrito.children).reduce((acumulador, fila) => {
+      const precio = parseFloat(fila.querySelector('.precio-producto').textContent);
+      const cantidad = parseFloat(fila.querySelector('.cantidad-producto').value);
+      return acumulador + (precio * cantidad);
+    }, 0);
+    document.querySelector('#total-carrito').textContent = `₡${total}`;
+  }
+  
+  function eliminarDelCarrito(boton) {
+    const fila = boton.closest('tr');
+    const nombre = fila.querySelector('.nombre-producto').textContent;
+    const precio = parseFloat(fila.querySelector('.precio-producto').textContent);
+    const cantidad = parseFloat(fila.querySelector('.cantidad-producto').value);
+    const carrito = document.querySelector('#carrito tbody');
+    carrito.removeChild(fila);
+    actualizarTotal();
+  }  
 
-/**
- * Evento para añadir un producto al carrito de la compra
- */
-function anyadirProductoAlCarrito(evento) {
-    // Anyadimos el Nodo a nuestro carrito
-    carrito.push(evento.target.getAttribute('marcador'))
-    // Actualizamos el carrito 
-    renderizarCarrito();
-
-}
-
-/**
- * Dibuja todos los productos guardados en el carrito
- */
-function renderizarCarrito() {
-    // Vaciamos todo el html
-    DOMcarrito.textContent = '';
-    // Quitamos los duplicados
-    const carritoSinDuplicados = [...new Set(carrito)];
-    // Generamos los Nodos a partir de carrito
-    carritoSinDuplicados.forEach((item) => {
-        // Obtenemos el item que necesitamos de la variable base de datos
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-            // ¿Coincide las id? Solo puede existir un caso
-            return itemBaseDatos.id === parseInt(item);
-        });
-        // Cuenta el número de veces que se repite el producto
-        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-            // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
-            return itemId === item ? total += 1 : total;
-        }, 0);
-        // Creamos el nodo del item del carrito
-        const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
-        // Boton de borrar
-        const miBoton = document.createElement('button');
-        miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-        miBoton.textContent = 'X';
-        miBoton.style.marginLeft = '1rem';
-        miBoton.dataset.item = item;
-        miBoton.addEventListener('click', borrarItemCarrito);
-        // Mezclamos nodos
-        miNodo.appendChild(miBoton);
-        DOMcarrito.appendChild(miNodo);
-    });
-    // Renderizamos el precio total en el HTML
-    DOMtotal.textContent = calcularTotal();
-}
-
-/**
- * Evento para borrar un elemento del carrito
- */
-function borrarItemCarrito(evento) {
-    // Obtenemos el producto ID que hay en el boton pulsado
-    const id = evento.target.dataset.item;
-    // Borramos todos los productos
-    carrito = carrito.filter((carritoId) => {
-        return carritoId !== id;
-    });
-    // volvemos a renderizar
-    renderizarCarrito();
-}
-
-/**
- * Calcula el precio total teniendo en cuenta los productos repetidos
- */
-function calcularTotal() {
-    // Recorremos el array del carrito 
-    return carrito.reduce((total, item) => {
-        // De cada elemento obtenemos su precio
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-            return itemBaseDatos.id === parseInt(item);
-        });
-        // Los sumamos al total
-        return total + miItem[0].precio;
-    }, 0).toFixed(2);
-}
-
-/**
- * Varia el carrito y vuelve a dibujarlo
- */
-function vaciarCarrito() {
-    // Limpiamos los productos guardados
+  function vaciarCarrito() {
+    // Obtener la tabla del carrito
+    let tablaCarrito = document.getElementById("carrito-tabla");
+  
+    // Borrar todas las filas del cuerpo de la tabla
+    tablaCarrito.getElementsByTagName("tbody")[0].innerHTML = "";
+  
+    // Reinicializar el arreglo carrito a un arreglo vacío
     carrito = [];
-    // Renderizamos los cambios
-    renderizarCarrito();
-}
-
-// Eventos
-DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-
-// Inicio
-renderizarProductos();
-renderizarCarrito();
+  
+    // Actualizar el total del carrito
+    actualizarTotal();
+  }
+  
