@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/menu.css">
+  <script src="menu.js"></script>
+  <title>Restaurante Bar Charlies</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>𝑅𝑒𝓈𝓉𝒶𝓊𝓇𝒶𝓃𝓉𝑒 𝐵𝒶𝓇 𝒞𝒽𝒶𝓇𝓁𝒾𝑒𝓈</h1>
+        <p></p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="inicio.html">𝐼𝓃𝒾𝒸𝒾𝑜</a></li>
+          <li><a href="menu.html">𝑀𝑒𝓃𝓊</a></li>
+          <li><a href="/Proyecto-Ambiente/log/reservas.php">𝑅𝑒𝓈𝑒𝓇𝓋𝒶𝓈</a></li>
+          <li><a href="contacto.html">𝒞𝑜𝓃𝓉𝒶𝒸𝓉𝑜</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- La sección está definida por un elemento section con el id de "menu" -->
+  <section id="menu">
+    <!-- hay un contenedor div con la clase "container" que contiene los diferentes elementos de menu-->
+    <div class="container">
+      <div class="menu-item">
+        <img src="pics/previews_0012_custom_1604997535.1665.jpg" alt="nombre-del-plato">
+        <h3>Salchipapas Colombianas</h3>
+        <p class="price">₡11.000</p>
+        <p class="description">Papitas con salchicha bien deliciosas</p>
+        <!-- No funciona aun -->
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Salchipapas Colombianas', 11000)">Agregar al
+          carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="pics/pizza-4-1.jpg" alt="nombre-del-plato">
+        <h3>Pizza Artesanal</h3>
+        <p class="price">₡15.000</p>
+        <p class="description">Pizza Original</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Pizza Artesanal', 15000)">Agregar al carrito</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="pics/th-1881588962" alt="nombre-del-plato">
+        <h3>Espaguetti Italia</h3>
+        <p class="price">₡4.500</p>
+        <p class="description">Espaguetti delicioso</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Espaguetti Italia', 4500)">Agregar al
+          carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="pics/th-1358255314" alt="hambugueza">
+        <h3>Hambugueza Deluxe</h3>
+        <p class="price">₡4.000</p>
+        <p class="description">hambugueza simple</p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Hambugueza Deluxe', 4000)">Agregar al
+          carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/hamburguezaconpapa.jpg" alt="hambugueza">
+        <h3>Hambugueza con papas</h3>
+        <p class="price">₡5.000</p>
+        <p class="description">una rica hamburgueza con papas </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Hambugueza con papas', 5000)">Agregar al
+          carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/tacos.jpg" alt="taco">
+        <h3>Tacos mexicanos</h3>
+        <p class="price">₡5.000</p>
+        <p class="description">3 tacos mexicanos deliciosos </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('tacos mexicanos', 3400)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/hotdog.jpg" alt="Hotdogs">
+        <h3>Hotdogs especiales</h3>
+        <p class="price">₡2.200</p>
+        <p class="description">2 hotdogs con salsas especiales </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('hotdogs', 2200)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/bebida.jpg" alt="Gintonic">
+        <h3>Gintonic</h3>
+        <p class="price">₡2.300</p>
+        <p class="description">coctel Gintonic </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Gintonic', 2300)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/torta.jpg" alt="Sandwitch">
+        <h3>Sandwitch</h3>
+        <p class="price">₡2.100</p>
+        <p class="description">Sandwitch </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Sandwitch', 2100)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/limo.jpg" alt="limo">
+        <h3>limonada</h3>
+        <p class="price">₡1.900</p>
+        <p class="description">limonada recien hecha </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('limonada', 1900)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/ricoboul.jpg" alt="bowl">
+        <h3>Megabowl</h3>
+        <p class="price">₡3.000</p>
+        <p class="description">Megabowl delicioso </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Megabowl', 3000)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/boul.jpg" alt="bowl">
+        <h3>Bowl</h3>
+        <p class="price">₡1.500</p>
+        <p class="description">bowl delicioso </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Bowl', 1500)">Agregar al carrito</button>
+      </div>
+      <div class="menu-item">
+        <img src="/Proyecto-Ambiente/log/src/view/Fotos/christine-von-raesfeld-Yk-PH1wFHQU-unsplash.jpg" alt="bowl">
+        <h3>Papas especiales</h3>
+        <p class="price">₡2.000</p>
+        <p class="description">papas con queso amarillo derretido </p>
+        <button class="btn btn-primary" onclick="agregarAlCarrito('Papas especiales', 2000)">Agregar al carrito</button>
+      </div>
+      <!-- Agregar más elementos para más platos -->
+    </div>
+
+  </section>
+  <section id="carrito">
+    <div class="container">
+      <h2>Carrito de compras</h2>
+      <table id="carrito-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total</td>
+            <td id="total-carrito">₡0</td>
+            <td><button class="btn btn-primary" onclick="vaciarCarrito()">Vaciar carrito</button></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+  <script src="menu.js"></script>
+
+</body>
+
+</html>

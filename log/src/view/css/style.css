@@ -1,0 +1,160 @@
+/* Fondo */
+.info-section {
+    background-image: url(https://foodandpleasure.com/wp-content/uploads/2018/06/piantao-3.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* ajusta la altura según tu diseño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .info-text {
+    text-align: center;
+    color:white;
+}
+* {
+	box-sizing: border-box;
+  }
+  header {
+	background-color: #fff;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: fuente;
+}
+p {
+    text-align: center;
+}
+
+.container {
+	max-width: 1200px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: fuente;
+}
+
+.logo {
+	text-align: center;
+	font-family: fuente
+}
+
+.logo h1 {
+	font-size: 48px;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-family: fuente;
+}
+
+.logo p {
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	color: #777;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	font-family: 'my font';
+}
+
+nav ul li {
+	margin-right: 20px;
+}
+
+nav ul li:last-child {
+	margin-right: 0;
+}
+
+nav ul li a {
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid transparent;
+	transition: all 0.3s ease-in-out;
+	font-family: 'my font';
+}
+
+
+nav ul li a:hover {
+	border-bottom: 2px solid #E74C3C;
+}
+
+
+.descripcion {
+	background-color: #fff;
+	padding: 50px 20px;
+	text-align: center;
+}
+
+.descripcion h2 {
+	margin: 0;
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.descripcion p {
+	margin: 0;
+	font-size: 18px;
+	color: #777;
+	line-height: 1.5;
+}
+.imagen img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.info-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .info-text {
+	flex: 1;
+	padding: 20px;
+  }
+  
+  .info-title {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	align-items: center;
+  }
+  
+  .info-description {
+	font-size: 18px;
+	margin-bottom: 20px;
+  }
+  
+  .info-image {
+	flex: 1;
+	margin-left: 20px;
+  }
+  
+  /* Estilos para la imagen */
+  .info-image img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+  }
+  .restaurant-image {
+  width: 100%;
+  height: 400px; /* Altura de la imagen, puedes ajustarla según tus necesidades */
+  object-fit: cover;
+}
