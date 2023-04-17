@@ -66,12 +66,3 @@ app.post('/api/ordenes', (req, res) => { // Creamos la ruta para insertar datos 
 
 
     app.listen(port, () => console.log(`http://localhost:${port}`));
-<<<<<<< Updated upstream
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes

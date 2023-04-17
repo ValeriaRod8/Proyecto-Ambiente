@@ -1,0 +1,85 @@
+CREATE DATABASE RESTAURANTE;
+
+USE RESTAURANTE;
+
+CREATE USER 'restaurante'@'localhost' IDENTIFIED BY 'restaurante';
+ALTER USER 'restaurante'@'localhost' IDENTIFIED WITH mysql_native_password BY 'restaurante';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
+flush privileges;
+GRANT ALL PRIVILEGES ON *.* TO 'restaurante'@'localhost';
+
+CREATE TABLE ORDENES (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  NUMERO_MESA INT NOT NULL,
+  ORDEN VARCHAR (50) NOT NULL,
+  TIPO_ORDEN VARCHAR(50) NOT NULL,
+  TOTAL DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE RESERVAS (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  NUMERO_MESA INT NOT NULL,
+  NOMBRE VARCHAR (20) NOT NULL,
+  APELLIDO VARCHAR(50) NOT NULL,
+  FECHA DATE NOT NUll,
+  HORA TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  NUMERO_DE_INVITADOS INT NOT NULL,
+  TOTAL DECIMAL(10, 2) NOT NULL
+);
+
+INSERT INTO RESERVAS(
+NUMERO_MESA,
+NOMBRE,
+APELLIDO,
+FECHA,
+NUMERO_DE_INVITADOS,
+TOTAL
+) VALUES (
+12,
+'valeria',
+'rodriguez',
+now(),
+8,
+20
+);
+SELECT*FROM RESERVAS;
+INSERT INTO ORDENES (
+  NUMERO_MESA,
+  ORDEN,
+  TIPO_ORDEN,
+  TOTAL
+) VALUES (
+  1,
+  'Hamburguesa con papas fritas',
+  'Para comer en el restaurante',
+  10.50
+);
+INSERT INTO ORDENES (
+  NUMERO_MESA,
+  ORDEN,
+  TIPO_ORDEN,
+  TOTAL
+) VALUES (
+  2,
+  'HOT DOG',
+  'Para comer en el restaurante',
+  30.50
+);
+INSERT INTO ORDENES (
+  NUMERO_MESA,
+  ORDEN,
+  TIPO_ORDEN,
+  TOTAL
+) VALUES (
+  3,
+  'Pizza',
+  'Para comer en el restaurante',
+  12.50
+);
+
+
+
+SELECT
+  *
+FROM
+  ORDENES;
